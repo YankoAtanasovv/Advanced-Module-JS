@@ -1,0 +1,14 @@
+function timeToWalk(steps, length, speed) {
+  let distance = steps * length;
+  let restTime = Math.floor(distance / 500) * 60;
+  let timeInSeconds = Math.round(distance / (speed / 3.6)) + restTime;
+  let hours = Math.floor(timeInSeconds / 3600);
+  let minutes = Math.floor((timeInSeconds % 3600) / 60);
+  let seconds = timeInSeconds % 60;
+
+  return `${hours.toString().padStart(2, "0")}:${minutes
+    .toString()
+    .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}
+
+console.log(timeToWalk(4000, 0.6, 5));
