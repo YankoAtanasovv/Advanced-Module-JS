@@ -1,0 +1,19 @@
+function sameNumber(int) {
+  let strNum = int.toString();
+  let firstDigit = strNum[0];
+  let sum = 0;
+
+  for (let i = 0; i < strNum.length; i++) {
+    sum += parseInt(strNum[i]);
+    if (strNum[i] != firstDigit) {
+      console.log(false);
+      console.log(sum);
+      return;
+    }
+  }
+
+  console.log(true);
+  console.log(sum);
+}
+
+sameNumber(2222222);
