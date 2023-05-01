@@ -1,0 +1,9 @@
+function calculteFruits(fruit, num1, num2) {
+  console.log(
+    `I need ${((num1 * num2) / 1000).toFixed(2)} to buy ${(num1 / 1000).toFixed(
+      2
+    )} kilograms ${fruit}.`
+  );
+}
+
+calculteFruits("apple", 1563, 2.35);
