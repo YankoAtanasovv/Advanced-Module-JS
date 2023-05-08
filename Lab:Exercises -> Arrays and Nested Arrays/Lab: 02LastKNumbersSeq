@@ -1,0 +1,18 @@
+function generateSequence(n, k) {
+    let sequence = [1];
+    let sum = 1;
+    
+    for (let i = 1; i < n; i++) {
+      if (i < k) {
+        sequence.push(sum);
+        sum += sequence[i];
+      } else {
+        sum -= sequence[i - k];
+        sequence.push(sum + sequence[i - k]);
+        sum += sequence[i];
+      }
+    }
+    
+    return sequence;
+  }
+ console.log(generateSequence(8, 2));
