@@ -1,0 +1,9 @@
+function biggerHalf(arr) {
+    let middleIndex = Math.max(arr.length / 2);
+    
+    let sortedArr = arr.sort((a, b) => a - b);
+    
+    return sortedArr.slice(middleIndex);
+  }
+
+  console.log(biggerHalf([3, 19, 14, 7, 2, 19, 6]));
