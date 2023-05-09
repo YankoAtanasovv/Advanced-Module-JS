@@ -1,0 +1,17 @@
+function rotateArr(inputArr, rotations) {
+  rotations = rotations % inputArr.length;
+
+  for (let i = 0; i < rotations; i++) {
+    let lastElement = inputArr.pop();
+    inputArr.unshift(lastElement);
+  }
+
+  console.log(inputArr.join(" "));
+}
+
+rotateArr(['Banana', 
+'Orange', 
+'Coconut', 
+'Apple'], 
+15
+);
