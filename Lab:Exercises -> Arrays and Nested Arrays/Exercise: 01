@@ -1,0 +1,13 @@
+function printArrWithGivenDelim(arr, del) {
+  console.log(arr.join(del));
+
+
+}
+
+printArrWithGivenDelim(['One', 
+'Two', 
+'Three', 
+'Four', 
+'Five'], 
+'-'
+);
