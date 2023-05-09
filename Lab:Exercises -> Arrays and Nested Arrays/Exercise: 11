@@ -1,0 +1,41 @@
+function diagonalSums(input) {
+    
+    const matrix = input.map(row => row.split(' ').map(Number));
+    
+    
+    let mainDiagonalSum = 0;
+    let secondaryDiagonalSum = 0;
+    for (let i = 0; i < matrix.length; i++) {
+      mainDiagonalSum += matrix[i][i];
+      secondaryDiagonalSum += matrix[i][matrix.length - i - 1];
+    }
+    
+   
+    if (mainDiagonalSum !== secondaryDiagonalSum) {
+      return matrix.map(row => row.join(' ')).join('\n');
+    }
+    
+    
+    const diagonalSum = mainDiagonalSum;
+    const result = [];
+    for (let i = 0; i < matrix.length; i++) {
+      result[i] = [];
+      for (let j = 0; j < matrix[i].length; j++) {
+        if (i === j || j === matrix.length - i - 1) {
+          result[i][j] = matrix[i][j];
+        } else {
+          result[i][j] = diagonalSum;
+        }
+      }
+    }
+    
+    
+    return result.map(row => row.join(' ')).join('\n');
+  }
+
+  console.log(diagonalSums(['5 3 12 3 1',
+  '11 4 23 2 5',
+  '101 12 3 21 10',
+  '1 4 5 2 2',
+  '5 22 33 11 1']
+  ));
