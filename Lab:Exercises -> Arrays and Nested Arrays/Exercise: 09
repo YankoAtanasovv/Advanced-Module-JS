@@ -1,0 +1,29 @@
+function magicalMatrix(matrix) {
+  let size = matrix.length;
+
+  let sum = matrix[0].reduce((a, b) => a + b);
+
+  for (let i = 0; i < size; i++) {
+    let rowSum = matrix[i].reduce((a, b) => a + b);
+
+    if (rowSum !== sum) {
+      return false;
+    }
+
+    let colSum = 0;
+    for (let j = 0; j < size; j++) {
+      colSum += matrix[j][i];
+    }
+
+    if (colSum !== sum) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(magicalMatrix([[11, 32, 45],
+    [21, 0, 1],
+    [21, 1, 1]]
+   ));
