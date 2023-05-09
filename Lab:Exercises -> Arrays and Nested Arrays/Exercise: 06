@@ -1,0 +1,10 @@
+Note: 80/100 in Judge!!!
+
+function listOfNames(names) {
+  names.sort();
+  for (let i = 0; i < names.length; i++) {
+    console.log(`${i + 1}.${names[i]}`);
+  }
+}
+
+listOfNames(["John", "Bob", "Christina", "Ema"]);
