@@ -1,0 +1,33 @@
+function townPopulation(arr) {
+  let townReg = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    let towns = arr[i].split(" <-> ");
+    let townName = towns[0];
+    let townPopulation = parseInt(towns[1]);
+
+    if (townReg.hasOwnProperty(townName)) {
+      townReg[townName] += townPopulation;
+    } else {
+      townReg[townName] = townPopulation;
+    }
+  }
+
+  let output = "";
+
+  for (let town in townReg) {
+    output += `${town} : ${townReg[town]}\n`;
+  }
+
+  return output;
+}
+
+console.log(
+  townPopulation([
+    "Sofia <-> 1200000",
+    "Montana <-> 20000",
+    "New York <-> 10000000",
+    "Washington <-> 2345000",
+    "Las Vegas <-> 1000000",
+  ])
+);
