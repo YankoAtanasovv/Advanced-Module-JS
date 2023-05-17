@@ -1,0 +1,44 @@
+function generateHTMLTable(data) {
+  let objects = JSON.parse(data);
+
+  let table = "<table>\n";
+
+  table += "<tr>";
+  for (let key in objects[0]) {
+    table += "<th>" + key + "</th>";
+  }
+  table += "</tr>\n";
+
+  for (let i = 0; i < objects.length; i++) {
+    table += "<tr>";
+    for (let key in objects[i]) {
+      table += "<td>" + escapeHTML(objects[i][key]) + "</td>";
+    }
+    table += "</tr>\n";
+  }
+
+  table += "</table>";
+  return table;
+}
+
+function escapeHTML(value) {
+  return value
+    .toString()
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+console.log(
+  generateHTMLTable(`[{"Name":"Pesho",
+"Score":4,
+" Grade":8},
+{"Name":"Gosho",
+"Score":5,
+" Grade":8},
+{"Name":"Angel",
+"Score":5.50,
+" Grade":10}]`)
+);
