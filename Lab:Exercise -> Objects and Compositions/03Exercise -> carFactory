@@ -1,0 +1,32 @@
+function carFactory(obj) {
+
+    let engine = [
+        {power: 90, volume: 1800},
+        {power: 120, volume: 2400},
+        {power: 200, volume: 3500}
+    ];
+
+    let carriages = [
+        {type: 'hatchback', color: obj.color},
+        {type: 'coupe', color: obj.color}
+    ];
+
+    let wheelsize = Math.floor(obj.wheelsize) % 2 === 0 ? Math.floor(obj.wheelsize) - 1 : Math.floor(obj.wheelsize);
+
+    let car = {
+        model: obj.model,
+        engine: engine.find(engine => engine.power >= obj.power),
+        carriage: carriages.find(carriage => carriage.type === obj.carriage),
+        wheels: [wheelsize, wheelsize, wheelsize, wheelsize]
+    };
+
+    return car;
+
+
+}
+
+console.log(carFactory({ model: 'Opel Vectra',
+power: 110,
+color: 'grey',
+carriage: 'coupe',
+wheelsize: 17 }));
