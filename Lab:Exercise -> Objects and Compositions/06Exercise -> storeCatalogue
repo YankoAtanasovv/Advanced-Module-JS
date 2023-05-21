@@ -1,0 +1,40 @@
+function storeCatalogue(data) {
+    const catalog = {};
+
+    for(let i = 0; i < data.length; i++) {
+        const [productName, productPrice] = data[i].split(' : ');
+        const initial = productName[0].toUpperCase();
+
+        if(!catalog.hasOwnProperty(initial)) {
+            catalog[initial] = [];
+        }
+        catalog[initial].push({ name: productName, price: Number(productPrice) });
+    }
+
+    let output = '';
+
+    const sortedKeys = Object.keys(catalog).sort();
+
+    for(const key of sortedKeys) {
+        output += `${key}\n`;
+
+        catalog[key].sort((a,b) => a.name.localeCompare(b.name)).forEach((product) => {
+            output += `  ${product.name}: ${product.price}\n`;
+            
+        });
+    }
+
+    return output.trim();
+}
+
+
+console.log(storeCatalogue([
+  "Appricot : 20.4",
+  "Fridge : 1500",
+  "TV : 1499",
+  "Deodorant : 10",
+  "Boiler : 300",
+  "Apple : 1.25",
+  "Anti-Bug Spray : 15",
+  "T-Shirt : 10",
+]));
